@@ -32,7 +32,7 @@ public class Date implements Comparable<Date>{
     }
     public static boolean isValidDate(Date date){
         int day = date.day, month = date.month, year = date.year;
-        if(year < 1 || day < 1 || month < 1 || month > 12)
+        if(year < 1000 || day < 1 || month < 1 || month > 12) //changed year to "year < 1000" so that year's before the year 1000 won't occur. Pretty sure no one wants an event before that...
             return false;
         switch (month){
             case 1: case 3: case 5: case 7: case 8: case 10: case 12:
