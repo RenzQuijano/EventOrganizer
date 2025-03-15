@@ -2,17 +2,26 @@ package util;
 
 public class Event implements Comparable<Event>{
 
+    private String name;
+
     private DateTime start;
 
     private DateTime end;
-
-    private String name;
 
     private String host;
 
     private int numOfInvitee;
 
     private String location;
+
+    public Event(String name, DateTime start, DateTime end, String host, int numOfInvitee, String location) {
+        this.name = name;
+        this.start = start;
+        this.end = end;
+        this.host = host;
+        this.numOfInvitee = numOfInvitee;
+        this.location = location;
+    }
 
     @Override
     public int compareTo(Event other) {
