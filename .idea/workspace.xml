@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9dcf1ca5-f96a-47b3-a3f3-4b91951b9b4a" name="Changes" comment="Update for EventOrganizer&#10;&#10;-Added text for when user enters command handling phase&#10;&#10;-Added a command for user to see list of commands&#10;&#10;-Made it so events are more readable when printing">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RenzQuijano&quot;
+  }
+}</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="da9b8b17-a3c2-47e9-af33-32023f35defb" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RenzQuijano/EventOrganizer.git&quot;,
+    &quot;accountId&quot;: &quot;da9b8b17-a3c2-47e9-af33-32023f35defb&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2uHKlXTDfE1l1vWTKynsTjxgSHx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EventOrganizer.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GitHub Projects/Programming Ass/PA3&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming Ass\PA3\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9dcf1ca5-f96a-47b3-a3f3-4b91951b9b4a" name="Changes" comment="" />
+      <created>1741900216308</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741900216308</updated>
+    </task>
+    <task id="LOCAL-00001" summary="DateTime.java fix&#10;&#10;Made it so years can not be before the year 1000, as I have a feeling no one wants to host an event near that time.">
+      <option name="closed" value="true" />
+      <created>1742048254978</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742048254978</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Event.java Rearranged&#10;&#10;private String name instance field has been rearranged for readability">
+      <option name="closed" value="true" />
+      <created>1742049866973</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742049866973</updated>
+    </task>
+    <task id="LOCAL-00003" summary="EventOrganizer.java Update&#10;&#10;- Added method to convert input String into DateTime object.&#10;&#10;-Added try block to handle user inputs&#10;&#10;-Made it so user has to enter a number for number of invitees">
+      <option name="closed" value="true" />
+      <created>1742050097621</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742050097621</updated>
+    </task>
+    <task id="LOCAL-00004" summary="EventOrganizer.java Update&#10;&#10;- Made welcome message with a format example for entering events&#10;&#10;-Fixed an issue where users were able to create an event with no name,start date, end date, host name, or location&#10;&#10;-Fixed an issue where errors were being called for no reason&#10;&#10;-Added a method to check some of the format for date/time&#10;&#10;-Re-writ code to be less weird">
+      <option name="closed" value="true" />
+      <created>1742062494846</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742062494846</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Random Commit">
+      <option name="closed" value="true" />
+      <created>1742671377105</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742671377105</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update for EventOrganizer&#10;&#10;-Added text for when user enters command handling phase&#10;&#10;-Added a command for user to see list of commands&#10;&#10;-Made it so events are more readable when printing">
+      <option name="closed" value="true" />
+      <created>1742674475456</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742674475456</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="EventOrganizer.java Update&#10;&#10;Added skeleton for input and command handling loops" />
+    <MESSAGE value="dw" />
+    <MESSAGE value="DateTime.java fix&#10;&#10;Made it so years can not be before the year 1000, as I have a feeling no one wants to host an event near that time." />
+    <MESSAGE value="Event.java Rearranged&#10;&#10;private String name instance field has been rearranged for readability" />
+    <MESSAGE value="EventOrganizer.java Update&#10;&#10;- Added method to convert input String into DateTime object.&#10;&#10;-Added try block to handle user inputs&#10;&#10;-Made it so user has to enter a number for number of invitees" />
+    <MESSAGE value="EventOrganizer.java Update&#10;&#10;- Made welcome message with a format example for entering events&#10;&#10;-Fixed an issue where users were able to create an event with no name,start date, end date, host name, or location&#10;&#10;-Fixed an issue where errors were being called for no reason&#10;&#10;-Added a method to check some of the format for date/time&#10;&#10;-Re-writ code to be less weird" />
+    <MESSAGE value="Random Commit" />
+    <MESSAGE value="Update for EventOrganizer&#10;&#10;-Added text for when user enters command handling phase&#10;&#10;-Added a command for user to see list of commands&#10;&#10;-Made it so events are more readable when printing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update for EventOrganizer&#10;&#10;-Added text for when user enters command handling phase&#10;&#10;-Added a command for user to see list of commands&#10;&#10;-Made it so events are more readable when printing" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
