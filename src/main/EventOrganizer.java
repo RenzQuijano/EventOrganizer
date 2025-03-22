@@ -6,7 +6,6 @@ import util.Event;
 import java.io.IOException;
 import java.util.*;
 
-
 public class EventOrganizer {
 
     private static Scanner keyboard = new Scanner(System.in);
@@ -31,7 +30,7 @@ public class EventOrganizer {
                 continue;
             }
 
-            //EX: Name,4/18/2004 @ 12:00:00 am,4/18/2004 @ 12:00:00 pm,Host,5,Location
+
             String eventName = eventProperties[0];
             String startDateTimeString = eventProperties[1];
             String endDateTimeString = eventProperties[2];
@@ -107,15 +106,26 @@ public class EventOrganizer {
         }
         Collections.sort(list);
 
+
+        System.out.println("Please enter a command" +
+                "\nFor a list of commands, type \"commands\"");
         //command handling
         while(true) {
             String command = keyboard.nextLine();
-            if (command.equalsIgnoreCase("quit")) {
+            if (command.equalsIgnoreCase("quit")) { //ends program
                 break;
             }
-            if (command.equalsIgnoreCase("print")) {
+
+            if (command.equalsIgnoreCase("commands")) { //displays list of commands
+                System.out.println("""
+                        quit
+                        print
+                        happening on (date and time)
+                        hosted by (host name)""");
+
+            } else if (command.equalsIgnoreCase("print")) {
                 for(Event event: list) {
-                    System.out.println(event);
+                    System.out.println(event + "\n");
                 }
             } else if (command.startsWith("happening on ")) {
                 String dateTime = command.substring("happening on ".length());
