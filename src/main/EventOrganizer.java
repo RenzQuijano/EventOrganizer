@@ -64,16 +64,16 @@ public class EventOrganizer {
             //split up date and time
             //splits into [MM/DD/YYYY] [@] [hh:mm:ss] [am or pm]
             try {
-                DateTimeStringSplitter(startDateTimeString);
-                DateTimeStringSplitter(endDateTimeString);
+                dateTimeStringSplitter(startDateTimeString);
+                dateTimeStringSplitter(endDateTimeString);
             }
             catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Error: Please make sure to format date/time's correctly");
                 continue;
             }
 
-            String[][] startDateTimeProperties = DateTimeStringSplitter(startDateTimeString);
-            String[][] endDateTimeProperties = DateTimeStringSplitter(endDateTimeString);
+            String[][] startDateTimeProperties = dateTimeStringSplitter(startDateTimeString);
+            String[][] endDateTimeProperties = dateTimeStringSplitter(endDateTimeString);
 
             try { //If either start or end date-time aren’t in the given format, throw an exception and handle it so that the user tries again
                 //creates DateTime objects
@@ -124,25 +124,89 @@ public class EventOrganizer {
                         hosted by (host name)""");
 
             } else if (command.equalsIgnoreCase("print")) {
+                //prints the list of all events in the following order
+                //The events are sorted from earliest to latest. Those events that start at the same time
+                //should be sorted from longest to shortest (length of an event can be determined since
+                //both start and end date/times are given). Those events that have the same start and
+                //end dates/times are sorted in alphabetical order of their names.
                 for(Event event: list) {
                     System.out.println(event + "\n");
                 }
             } else if (command.startsWith("happening on ")) {
-                String dateTime = command.substring("happening on ".length());
-                //convert givenDateTime string to dateTime obj
+                String givenDateTime = command.substring("happening on ".length());
+                //convert givenDateTime string to dateTime obj safely
+                try {
+                    dateTimeStringSplitter(givenDateTime);
+                }
+                catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Error: Please make sure to format date/time's correctly");
+                    continue;
+                }
+
+                String [][] dateTimeProperties = dateTimeStringSplitter(givenDateTime);
+
+                try {
+                    DateTime dateTime = getDateTime(dateTimeProperties[1], dateTimeProperties[2], dateTimeProperties[0]);
+
+                    dateTimeFormatCheck(dateTimeProperties, dateTime);
+
+                    if(!DateTime.isValidDateTime(dateTime)) {
+                        throw new DateTimeInvalidException(dateTime);
+                    }
+                }
+                catch (DateTimeInvalidException e) {
+                    System.out.println("Error occurred: " + e);
+                    continue;
+                }
+                catch (NumberFormatException e) {
+                    System.out.println("Error occurred. Please make sure to write date/time's correctly");
+                    continue;
+                }
+                catch (IOException e) {//error for format of date/time
+                    System.out.println("Error occurred. Please make sure to format date/time's correctly");
+                    continue;
+                }
+
+                DateTime dateTime = getDateTime(dateTimeProperties[1], dateTimeProperties[2], dateTimeProperties[0]);
+
+                //if no events during givenDateTime, program prints a message saying so
+                boolean eventsDuringTime = false;
                 for(Event event: list) {
                     //compare every event's start and end dateTime with given date time
                     //if given DateTime is greater than or equal to startDateTime
                     //and given DateTime is less than or equal to endDateTime
                     //print that event
+                    if ((dateTime.compareTo(event.getStart()) >= 0) && (dateTime.compareTo(event.getEnd()) <= 0)) {
+                        System.out.println(event);
+                        eventsDuringTime = true;
+                    }
+                }
+
+                if (!eventsDuringTime) {
+                    System.out.println("No events during given time: " + dateTime);
                 }
 
             } else if (command.startsWith("hosted by ")) {
                 String givenHost = command.substring("hosted by ".length());
                 //make sure given host has no commas
+                if (givenHost.contains(",")) {
+                    System.out.println("Please make sure the host's name does not contain any commas");
+                    continue;
+                }
+
+                //if no events with givenHost, program prints a message saying so
+                boolean eventsWithHost = false;
                 for(Event event: list) {
                     //compare every event's hostName with givenHostName
                     //if found match, print event
+                    if(givenHost.equalsIgnoreCase(event.getHost().toLowerCase())) {
+                        System.out.println(event);
+                        eventsWithHost = true;
+                    }
+                }
+
+                if (!eventsWithHost) {
+                    System.out.println("There are no events with that host");
                 }
 
             } else {
@@ -161,7 +225,7 @@ public class EventOrganizer {
         }
     }
 
-    private static DateTime getDateTime(String[] dateProperties, String[] timeProperties, String[] dateTimeProperties) {
+    private static DateTime getDateTime(String[] dateProperties, String[] timeProperties, String[] dateTimeProperties) throws NumberFormatException{
         int month = Integer.parseInt(dateProperties[0]),
                 day = Integer.parseInt(dateProperties[1]),
                 year = Integer.parseInt(dateProperties[2]);
@@ -173,11 +237,15 @@ public class EventOrganizer {
         return new DateTime((new Date(day, month, year)), hour, minute, second, dateTimeProperties[3].equalsIgnoreCase("am"));
     }
 
-    private static String[][] DateTimeStringSplitter(String givenDateTimeString) {
-        String [] DateTimeProperties = givenDateTimeString.split(" "); //splits into [MM/DD/YYYY] [@] [hh:mm:ss] [am or pm]
-        String [] DateProperties = DateTimeProperties[0].split("/"); //splits into [MM] [DD] [YYYY]
-        String [] TimeProperties = DateTimeProperties[2].split(":"); //splits into [hh] [mm] [ss]
+    private static String[][] dateTimeStringSplitter(String givenDateTimeString) throws IndexOutOfBoundsException {
+        String [] dateTimeProperties = givenDateTimeString.split(" "); //splits into [MM/DD/YYYY] [@] [hh:mm:ss] [am or pm]
+        String [] dateProperties = dateTimeProperties[0].split("/"); //splits into [MM] [DD] [YYYY]
+        String [] timeProperties = dateTimeProperties[2].split(":"); //splits into [hh] [mm] [ss]
 
-        return new String[][]{DateTimeProperties, DateProperties, TimeProperties};
+        if(dateTimeProperties[3].isEmpty()) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        return new String[][]{dateTimeProperties, dateProperties, timeProperties};
     }
 }

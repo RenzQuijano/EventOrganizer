@@ -29,7 +29,7 @@ public class Event implements Comparable<Event>{
             return this.start.compareTo(other.start);
         }
         if(this.end.compareTo(other.end) != 0) {
-            return this.end.compareTo(other.end);
+            return other.end.compareTo(this.end); //switched these around to get the right sort that is asked in assignment
         }
         return this.name.compareTo(other.name);
     }
@@ -37,5 +37,18 @@ public class Event implements Comparable<Event>{
     @Override
     public String toString() {
         return String.format("Event: %s, from %s to %s @ %s, number of invitees %d, hosted by %s", name, start, end, location, numOfInvitee, host);
+    }
+
+    //getters are used for command "happening on"
+    public DateTime getStart() {
+        return start;
+    }
+
+    public DateTime getEnd() {
+        return end;
+    }
+    //this getter is used for "hosted by" command
+    public String getHost() {
+        return host;
     }
 }
